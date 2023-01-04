@@ -1,9 +1,8 @@
-# Backend-template
+# efarmly-backend-p4-team-anil-1
 
 ### What is this repository for?
 
-- This repo is for the backend template using es6 and advance feature using major and minor things
-- It consists of the MongoDb connection with the app using the docker setup
+- This is the Backend repo for the eFarmly app
 
 ### How do I get set up?
 
@@ -15,11 +14,11 @@
     - [x] npm for the package and dependencies installation
     - [x] docker set up running with the desired setting for the system
 
-    ```
+    ```bash
     node -v;
-    // v16.17.1
+    // ^19.3.0
     npm -v;
-    // 8.15.0
+    // ^9.2.0
     yarn --version
     // 1.22.19
     docker -v;
