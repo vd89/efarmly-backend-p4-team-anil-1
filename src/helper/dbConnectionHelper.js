@@ -14,8 +14,8 @@ const mongoOpt = {
 
 const dbController = async () => {
  try {
-  await connect(mongoUrl, mongoOpt);
   log(`MongoDb -> Connected to mongoDb Server`);
+  return await connect(mongoUrl, mongoOpt);
  } catch (err) {
   log(err.message);
  }

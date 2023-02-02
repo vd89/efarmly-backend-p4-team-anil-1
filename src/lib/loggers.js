@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import util from 'util';
 
 const createLogger =

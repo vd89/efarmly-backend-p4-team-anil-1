@@ -26,7 +26,7 @@ if (app.get('env') === 'production') {
  app.set('trust proxy', 1); // trust first proxy
  sessionConfig.cookies.secure = true; // serve secure cookies
 }
-const corsOptionsDelegate = function (req, callback) {
+const corsOptionsDelegate = (req, callback) => {
  let corsOptions;
  if (whiteList.indexOf(req.header('Origin')) !== -1) {
   corsOptions = {
