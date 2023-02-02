@@ -70,7 +70,7 @@
   "db:init": "docker compose -f int-setup/docker-compose.yaml up -d",
   "test": "NODE_ENV=test node --experimental-vm-modules node_modules/.bin/jest --testTimeout=5000",
   "test:cov": "node --experimental-vm-modules node_modules/.bin/jest --coverage",
-  "lint": "eslint src --fix ",
+  "lint-fix": "eslint src tests --fix ",
   "prepare": "husky install"
  }
 }
