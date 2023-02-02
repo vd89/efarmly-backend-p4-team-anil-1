@@ -6,5 +6,8 @@
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "dbaeumer.vscode-eslint"
  },
- "prettier.quoteProps": "preserve"
+ "prettier.quoteProps": "preserve",
+ "[jsonc]": {
+  "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+ }
 }

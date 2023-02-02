@@ -32,28 +32,40 @@
   "no-underscore-dangle": 0,
   "no-plusplus": 0,
   "arrow-body-style": "off",
-  "prefer-arrow-callback": "off"
-  // "max-len": [ "error", { "code": 120, "tabWidth": 2, "ignoreUrls": true, "ignoreStrings": true } ],
-  // "no-console": "error",
-  // "indent": "error",
-  // "object-curly-spacing": [ "error", "always" ],
-  // "prefer-const": "error",
-  // "eqeqeq": "error",
-  // "no-eval": "error",
-  // "no-var": "error",
-  // "array-callback-return": "error",
-  // "handle-callback-err": "error",
-  // "no-sync": "error",
-  // "one-var": [ "error", "never" ],
-  // "sort-imports": [
-  //   "error",
-  //   {
-  //     "ignoreCase": true,
-  //     "ignoreDeclarationSort": true,
-  //     "ignoreMemberSort": true,
-  //     "memberSyntaxSortOrder": [ "single", "all", "multiple", "none" ],
-  //     "allowSeparatedGroups": true
-  //   }
-  // ]
+  "prefer-arrow-callback": "off",
+  "max-len": ["error", { "code": 120, "tabWidth": 2, "ignoreUrls": true, "ignoreStrings": true }],
+  "no-console": "error",
+  "indent": "off",
+  "object-curly-spacing": ["error", "always"],
+  "prefer-const": "error",
+  "eqeqeq": "error",
+  "no-eval": "error",
+  "no-var": "error",
+  "array-callback-return": "error",
+  "handle-callback-err": "error",
+  "no-sync": "error",
+  "one-var": ["error", "never"],
+  "require-jsdoc": [
+   "error",
+   {
+    "require": {
+     "FunctionDeclaration": true,
+     "MethodDefinition": true,
+     "ClassDeclaration": false,
+     "ArrowFunctionExpression": true,
+     "FunctionExpression": true
+    }
+   }
+  ],
+  "sort-imports": [
+   "error",
+   {
+    "ignoreCase": true,
+    "ignoreDeclarationSort": true,
+    "ignoreMemberSort": true,
+    "memberSyntaxSortOrder": ["single", "all", "multiple", "none"],
+    "allowSeparatedGroups": true
+   }
+  ]
  }
 }
