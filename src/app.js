@@ -6,14 +6,13 @@ import morgan from 'morgan';
 import compression from 'compression';
 import helmet from 'helmet';
 import cors from 'cors';
-import session from 'express-session';
-
 import { sessionClear, sessionConfig } from './helper/sessionHelper.js';
 import appConfig from './appConfig.js';
 import { errHandler, headerFunction, notFound } from './middleware/errorMiddleware.js';
 import { extendedRequestMiddleware } from './middleware/middleware.js';
 import apiRoutes from './router/index.js';
 import { pingRes, testAuth } from './helper/extraHelper.js';
+import { createStream } from 'rotating-file-stream';
 
 const app = express();
 const { availableLocals, defaultLanguage, projectRoot, whiteList } = appConfig;
@@ -49,21 +48,32 @@ const corsOptionsDelegate = function (req, callback) {
  callback(null, corsOptions);
 };
 
+const accessLogStream = createStream('access.log', {
+ size: '10M',
+ interval: '1d',
+ path: path.join(projectRoot, 'log'),
+});
+
 app.use(i18n.init);
 app.use(cookieParser());
-app.use(
- session({
-  name: 'back-end-temp',
-  key: sessionConfig.key,
-  secret: sessionConfig.secret,
-  resave: sessionConfig.resave,
-  saveUninitialized: sessionConfig.saveUninitialized,
-  cookie: sessionConfig.cookies,
- })
-);
+
+/*
+  Session is commented not in use
+*/
+// app.use(
+//  session({
+//   name: 'back-end-temp',
+//   key: sessionConfig.key,
+//   secret: sessionConfig.secret,
+//   resave: sessionConfig.resave,
+//   saveUninitialized: sessionConfig.saveUninitialized,
+//   cookie: sessionConfig.cookies,
+//  })
+// );
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(morgan('combined'));
+app.use(morgan('combined', { stream: accessLogStream }));
 app.use(compression());
 app.use(helmet());
 app.set('showStackError', true);

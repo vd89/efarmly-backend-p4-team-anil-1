@@ -1,5 +1,5 @@
 {
- "cSpell.words": ["daxmarktine", "Marktine", "resave"],
+ "cSpell.words": ["daxmarktine", "finalhandler", "Marktine", "resave"],
  "editor.defaultFormatter": "esbenp.prettier-vscode",
  "editor.formatOnSave": true,
  "[javascript]": {
