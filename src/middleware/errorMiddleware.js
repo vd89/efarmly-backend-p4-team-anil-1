@@ -1,6 +1,3 @@
-import debug from 'debug';
-const appLog = debug('app:middleware -> ');
-
 export const notFound = (req, res, next) => {
  const error = new Error(` 🔍 Not Found -${req.originalUrl}`);
  res.status(404).json({ data: { message: 'Error', err: error.message } });
@@ -13,10 +10,11 @@ export const errHandler = (err, req, res, next) => {
  res.json({
   data: {
    msg: err.message,
-   stack: process.env.NODE_ENV === 'production' ? ' 🌵 🌵 ' : err.stack,
+   stack: process.env.NODE_ENV !== 'dev' ? (process.env.NODE_ENV === 'test' ? err : ' 🌵 🌵 ') : err.stack,
    response: err.response ? err.response.data : null,
   },
  });
+ //  response.status(status).send(error);
 };
 
 export const headerFunction = (req, res, next) => {
@@ -31,16 +29,6 @@ export const headerFunction = (req, res, next) => {
  );
  if (req.method === 'OPTIONS') {
   return res.status(200).end();
- }
- next();
-};
-
-export const unauthorizedErrors = (err, req, res, next) => {
- if (err.name === 'UnauthorizedError') {
-  res.status(401).json({ error: err.name + ': ' + err.message });
- } else if (err) {
-  res.status(400).json({ error: err.name + ': ' + err.message });
-  appLog(err);
  }
  next();
 };

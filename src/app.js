@@ -6,7 +6,7 @@ import morgan from 'morgan';
 import compression from 'compression';
 import helmet from 'helmet';
 import cors from 'cors';
-import { sessionClear, sessionConfig } from './helper/sessionHelper.js';
+// import { sessionClear, sessionConfig } from './helper/sessionHelper.js';
 import appConfig from './appConfig.js';
 import { errHandler, headerFunction, notFound } from './middleware/errorMiddleware.js';
 import { extendedRequestMiddleware } from './middleware/middleware.js';
@@ -24,7 +24,7 @@ i18n.configure({
 });
 if (app.get('env') === 'production') {
  app.set('trust proxy', 1); // trust first proxy
- sessionConfig.cookies.secure = true; // serve secure cookies
+ //  sessionConfig.cookies.secure = true; // serve secure cookies
 }
 const corsOptionsDelegate = (req, callback) => {
  let corsOptions;
@@ -79,7 +79,7 @@ app.use(helmet());
 app.set('showStackError', true);
 app.use('*', cors(corsOptionsDelegate));
 
-app.use(sessionClear);
+// app.use(sessionClear);
 app.use(extendedRequestMiddleware);
 
 app.all('*', headerFunction);
@@ -91,8 +91,7 @@ app.get('/', testAuth);
 app.get('/ping', pingRes);
 app.use('/api', apiRoutes);
 
-app.use(notFound);
 app.use(errHandler);
-// app.use(unauthorizedErrors);
+app.use(notFound);
 
 export default app;

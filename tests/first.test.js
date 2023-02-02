@@ -1,7 +1,36 @@
 import request from 'supertest';
+import jest from 'jest-mock';
 import app from '../src/app.js';
+import { errHandler } from '../src/middleware/errorMiddleware.js';
 
+let mockRequest;
+let mockResponse;
+const nextFunction = jest.fn();
+const err = new Error('forLocalhost', { stack: ' this is test ' });
+const error = {
+ data: {
+  msg: 'forLocalhost',
+  stack: err,
+  response: null,
+ },
+};
 describe('-> App Basic and first routes', () => {
+ beforeEach(() => {
+  mockRequest = {};
+  mockResponse = {
+   status: jest.fn().mockReturnThis(),
+   statusCode: 500, // This line
+   json: jest.fn(), // also mocking for send function
+  };
+ });
+
+ test('-> Error handler when it includes statusCode', async () => {
+  errHandler(err, mockRequest, mockResponse, nextFunction);
+  expect(mockResponse.status).toHaveBeenCalledWith(500);
+  expect(mockResponse.json).toHaveBeenCalledWith(error);
+  expect(nextFunction).not.toHaveBeenCalled();
+ });
+
  test('-> Server Api Route api/', async () => {
   const res = await request(app).get('/');
   expect(res.headers['x-application-identifier']).toBe('efarmly-test');
