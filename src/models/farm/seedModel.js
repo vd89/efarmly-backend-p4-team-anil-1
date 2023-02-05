@@ -2,7 +2,8 @@ import { model, Schema } from 'mongoose';
 
 const _schema = new Schema(
  {
-  seedName: { type: String, required: true },
+  seedName: { type: String },
+  brand: { type: String },
  },
  { timestamps: true }
 );

@@ -2,17 +2,8 @@ import { model, Schema } from 'mongoose';
 
 const _schema = new Schema(
  {
-  unitsName: {
-   transport: {
-    type: String,
-   },
-   farm: {
-    type: String,
-   },
-   quantity: {
-    type: String,
-   },
-  },
+  farmerName: { type: String, required: true },
+  mobile: { type: String, require: true, unique: true },
  },
  { timestamps: true }
 );

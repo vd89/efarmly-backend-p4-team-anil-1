@@ -2,7 +2,8 @@ import { model, Schema } from 'mongoose';
 
 const _schema = new Schema(
  {
-  fertilizerName: { type: String, required: true },
+  fertilizerName: { type: String },
+  brand: { type: String },
  },
  { timestamps: true }
 );

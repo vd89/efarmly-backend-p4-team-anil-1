@@ -2,7 +2,8 @@ import { model, Schema } from 'mongoose';
 
 const _schema = new Schema(
  {
-  pesticideName: { type: String, required: true },
+  pesticidesName: { type: String },
+  brand: { type: String },
  },
  { timestamps: true }
 );
