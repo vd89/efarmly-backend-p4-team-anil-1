@@ -1,5 +1,5 @@
 {
- "SUCCESS": "Success",
+ "SUCCESS": "SUCCESS",
  "REGISTRATION_SUCCESS": "Registration Success",
  "SIGNED_SUCCESS": "Signed Success",
  "USER_ALREADY_REGISTERED": "User is already registered",
@@ -12,5 +12,10 @@
  "ALREADY_LIKED_BY_USER": "Already liked by user",
  "ALREADY_UNLINED_BY_USER": "Already unlined by user",
  "USER_COMMENTED_ONCE": "User Commented once",
- "REMOVE_POST": "Removed Post"
+ "REMOVE_POST": "Removed Post",
+ "OTP_GENERATED": "OTP Generated",
+ "User is not defined": "User is not defined",
+ "LOGIN_WITH_CORRECT_MOBILE": "Login with Correct Mobile",
+ "OTP_IS_WRONG": "OTP is Wrong",
+ "WRONG_VERIFICATION_CODE": "Wrong verification code"
 }

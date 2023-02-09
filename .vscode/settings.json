@@ -9,5 +9,6 @@
  "prettier.quoteProps": "preserve",
  "[jsonc]": {
   "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
- }
+ },
+ "liveServer.settings.port": 5501
 }

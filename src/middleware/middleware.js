@@ -1,3 +1,4 @@
+/* eslint-disable spellcheck/spell-checker */
 import _ from 'lodash';
 import appConfig from '../appConfig.js';
 import debug from 'debug';
@@ -45,7 +46,7 @@ export const extendedRequestMiddleware = (req, res, next) => {
   const { message = 'SUCCESS', data = {} } = resPayload;
   return res.status(200).send({
    statusCode: 200,
-   status: message,
+   status: 'SUCCESS',
    message: res.__(message),
    data,
   });
@@ -54,8 +55,9 @@ export const extendedRequestMiddleware = (req, res, next) => {
  res.created = ({ data, message }) => {
   return res.status(201).send({
    statusCode: 201,
-   data: data,
+   status: 'SUCCESS',
    message: res.__(message),
+   data: data,
   });
  };
 
@@ -65,21 +67,19 @@ export const extendedRequestMiddleware = (req, res, next) => {
   if (typeof resPayload === 'string') {
    return res.status(400).send({
     statusCode: 400,
-    status: resPayload,
+    status: 'ERROR',
     error: res.__(resPayload),
     message: res.__(resPayload),
-    data: {},
    });
   }
 
-  const { statusCode = 400, message = 'BAD_REQUEST', data = {} } = resPayload;
+  const { statusCode = 400, message = 'BAD_REQUEST' } = resPayload;
 
   return res.status(statusCode).send({
    statusCode,
    status: message,
    message: res.__(message),
    error: res.__(message),
-   data,
   });
  };
 

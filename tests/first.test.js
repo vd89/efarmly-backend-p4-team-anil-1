@@ -1,3 +1,4 @@
+/* eslint-disable spellcheck/spell-checker */
 import request from 'supertest';
 import jest from 'jest-mock';
 import app from '../src/app.js';
@@ -6,10 +7,10 @@ import { errHandler } from '../src/middleware/errorMiddleware.js';
 let mockRequest;
 let mockResponse;
 const nextFunction = jest.fn();
-const err = new Error('forLocalhost', { stack: ' this is test ' });
+const err = new Error('testLocalHost', { stack: ' this is test ' });
 const error = {
  data: {
-  msg: 'forLocalhost',
+  msg: 'testLocalHost',
   stack: err,
   response: null,
  },

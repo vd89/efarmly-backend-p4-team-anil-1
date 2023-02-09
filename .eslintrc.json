@@ -75,7 +75,18 @@
     "identifiers": true,
     "templates": true,
     "lang": "en_US",
-    "skipWords": ["dict", "aff", "spellchecker", "hunspell", "utils", "Labour", "Labours", "timestamps"],
+    "skipWords": [
+     "otpCtrl",
+     "req",
+     "dict",
+     "aff",
+     "spellchecker",
+     "hunspell",
+     "utils",
+     "Labour",
+     "Labours",
+     "timestamps"
+    ],
     "skipIfMatch": ["http://[^s]*", "^[-\\w]+/[-\\w\\.]+$"],
     "skipWordIfMatch": ["^foobar.*$"],
     "minLength": 3
