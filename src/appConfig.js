@@ -1,3 +1,4 @@
+/* eslint-disable spellcheck/spell-checker */
 import config from 'config';
 import path from 'path';
 
@@ -10,7 +11,7 @@ export default {
  projectRoot: path.join(__dirname, '.'),
  algorithm: 'aes-256-cbc',
  encryptionKey: process.env.ENCRYPTION_KEY || config.get('ENCRYPTION_KEY') || '',
- sessionSecret: process.env.SESSION_SECRET || config.get('SESSION_SECRET') || '',
+ //  sessionSecret: process.env.SESSION_SECRET || config.get('SESSION_SECRET') || '',
  jwtSecret: process.env.JWT_SECRET || config.get('JWT_SECRET') || '',
  whiteList: process.env.CORS_WHITELIST || config.get('CORS_WHITELIST') || [],
  environment: process.env.NODE_ENV || config.get('ENVIRONMENT') || '',
