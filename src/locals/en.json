@@ -17,5 +17,7 @@
  "User is not defined": "User is not defined",
  "LOGIN_WITH_CORRECT_MOBILE": "Login with Correct Mobile",
  "OTP_IS_WRONG": "OTP is Wrong",
- "WRONG_VERIFICATION_CODE": "Wrong verification code"
+ "WRONG_VERIFICATION_CODE": "Wrong verification code",
+ "db already exists with different case already have: [eFarmly] trying to create [efarmly]": "db already exists with different case already have: [eFarmly] trying to create [efarmly]",
+ "Got Categories": "Got Categories"
 }

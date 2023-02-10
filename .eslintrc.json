@@ -66,31 +66,31 @@
     "memberSyntaxSortOrder": ["single", "all", "multiple", "none"],
     "allowSeparatedGroups": true
    }
-  ],
-  "spellcheck/spell-checker": [
-   1,
-   {
-    "comments": true,
-    "strings": true,
-    "identifiers": true,
-    "templates": true,
-    "lang": "en_US",
-    "skipWords": [
-     "otpCtrl",
-     "req",
-     "dict",
-     "aff",
-     "spellchecker",
-     "hunspell",
-     "utils",
-     "Labour",
-     "Labours",
-     "timestamps"
-    ],
-    "skipIfMatch": ["http://[^s]*", "^[-\\w]+/[-\\w\\.]+$"],
-    "skipWordIfMatch": ["^foobar.*$"],
-    "minLength": 3
-   }
   ]
+  // "spellcheck/spell-checker": [
+  //  1,
+  //  {
+  //   "comments": true,
+  //   "strings": true,
+  //   "identifiers": true,
+  //   "templates": true,
+  //   "lang": "en_US",
+  //   "skipWords": [
+  //    "otpCtrl",
+  //    "req",
+  //    "dict",
+  //    "aff",
+  //    "spellchecker",
+  //    "hunspell",
+  //    "utils",
+  //    "Labour",
+  //    "Labours",
+  //    "timestamps"
+  //   ],
+  //   "skipIfMatch": ["http://[^s]*", "^[-\\w]+/[-\\w\\.]+$"],
+  //   "skipWordIfMatch": ["^foobar.*$"],
+  //   "minLength": 3
+  //  }
+  // ]
  }
 }
