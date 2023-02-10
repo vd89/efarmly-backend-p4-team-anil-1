@@ -1,3 +1,6 @@
+import { getFarmer } from '../controllers/authCtrl.js';
+import { tokenVerify } from '../helper/encryptionHelper.js';
+
 export const notFound = (req, res, next) => {
  const error = new Error(` 🔍 Not Found -${req.originalUrl}`);
  res.status(404).json({ data: { message: 'Error', err: error.message } });
@@ -31,4 +34,20 @@ export const headerFunction = (req, res, next) => {
   return res.status(200).end();
  }
  next();
+};
+
+export const _useAuth = async (req, res, next) => {
+ const getToken = req.header('x-efarmly-token');
+ if (!getToken) {
+  return res.unauthorized(`Don't have the, authorization to access`);
+ }
+ // Verify the Token
+ try {
+  const deCoded = await tokenVerify(getToken);
+  const user = await getFarmer(deCoded.user);
+  req.user = user;
+  next();
+ } catch (err) {
+  next(err);
+ }
 };

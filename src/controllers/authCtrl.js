@@ -36,3 +36,12 @@ export const otpCtrl = async (req, res) => {
   res.error(err.message);
  }
 };
+
+// helper for the auth
+export const getFarmer = async (id) => {
+ try {
+  return await Farmer.findById(id);
+ } catch (err) {
+  logger(err.message);
+ }
+};
